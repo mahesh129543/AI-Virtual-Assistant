@@ -14,11 +14,15 @@ app.use(cors({
     origin:"http://localhost:5173",
     credentials:true
 }))
-const port=process.env.PORT || 5000
+const port=process.env.PORT 
 app.use(express.json())
 app.use(cookieParser())
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
+app.get("/",(req,res)=>{
+    res.send("api is working")
+}
+)
 
 
 app.listen(port,()=>{
